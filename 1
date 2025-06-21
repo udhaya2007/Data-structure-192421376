@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int A[10][10], B[10][10], C[10][10], m, n, p, i, j, k;
+
+    printf("Enter m n p: ");
+    scanf("%d %d %d", &m, &n, &p);
+
+    printf("Enter A (%d x %d):\n", m, n);
+    for(i=0;i<m;i++) for(j=0;j<n;j++) scanf("%d", &A[i][j]);
+
+    printf("Enter B (%d x %d):\n", n, p);
+    for(i=0;i<n;i++) for(j=0;j<p;j++) scanf("%d", &B[i][j]);
+
+    for(i=0;i<m;i++) for(j=0;j<p;j++) {
+        C[i][j]=0;
+        for(k=0;k<n;k++) C[i][j] += A[i][k] * B[k][j];
+    }
+
+    printf("Result:\n");
+    for(i=0;i<m;i++,printf("\n"))
+        for(j=0;j<p;j++) printf("%d ", C[i][j]);
+
+    return 0;
+}
